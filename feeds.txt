@@ -5,6 +5,7 @@ https://github.blog/feed/
 https://dev.to/feed
 https://korben.info/feed
 https://hnrss.org/frontpage?points=150
+https://pasqualepillitteri.it/fr/news/cat/39
 
 # ===== Actu cybersécurité =====
 [cyber]
@@ -31,3 +32,4 @@ https://huggingface.co/blog/feed.xml
 https://simonwillison.net/atom/everything/
 https://github.com/sst/opencode/releases.atom
 https://github.com/ollama/ollama/releases.atom
+https://pasqualepillitteri.it/fr/news/cat/33

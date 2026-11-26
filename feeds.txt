@@ -1,6 +1,33 @@
-# un flux par ligne, les lignes avec # sont ignorées
-https://www.numerama.com/feed/
+# ===== Dev =====
+[dev]
+https://www.developpez.com/index/rss
+https://github.blog/feed/
+https://dev.to/feed
 https://korben.info/feed
-https://www.cert.ssi.gouv.fr/feed/
-https://news.ycombinator.com/rss
-https://www.lemonde.fr/rss/une.xml
+https://hnrss.org/frontpage?points=150
+
+# ===== Actu cybersécurité =====
+[cyber]
+https://www.zataz.com/feed/
+https://www.bleepingcomputer.com/feed/
+https://feeds.feedburner.com/TheHackersNews
+https://krebsonsecurity.com/feed/
+
+# ===== Alertes officielles (tout passe) =====
+[alertes]
+https://www.cert.ssi.gouv.fr/alerte/feed/
+https://www.cisa.gov/cybersecurity-advisories/all.xml
+
+# ===== Failles et CVE (filtrées sur la gravité) =====
+[vulns]
+include: critical, critique, RCE, remote code execution, exécution de code à distance, zero-day, 0-day, 0day, exploited, exploitée, CVSS 9, CVSS 10
+https://www.cert.ssi.gouv.fr/avis/feed/
+https://www.zerodayinitiative.com/rss/published/
+https://www.exploit-db.com/rss.xml
+
+# ===== IA et outils =====
+[ia]
+https://huggingface.co/blog/feed.xml
+https://simonwillison.net/atom/everything/
+https://github.com/sst/opencode/releases.atom
+https://github.com/ollama/ollama/releases.atom

@@ -6,8 +6,8 @@ STATE = "seen.json"
 API = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
 # --- BLOC DE TEST : à supprimer une fois que ça marche ---
-r = requests.post(API, json={"chat_id": CHAT_ID, "text": "test"})
-print("TEST:", r.status_code, r.text)
+#r = requests.post(API, json={"chat_id": CHAT_ID, "text": "test"})
+#print("TEST:", r.status_code, r.text)
 # ----------------------------------------------------------
 
 seen = set(json.load(open(STATE))) if os.path.exists(STATE) else set()

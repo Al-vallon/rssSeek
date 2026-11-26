@@ -12,9 +12,10 @@ MAX_PER_RUN = 30      # plafond d'envois par exécution
 def load_state():
     try:
         with open(STATE_FILE) as f:
-            return json.load(f)
+            data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
+    return data if isinstance(data, dict) else {}
 
 def send(text):
     for _ in range(3):

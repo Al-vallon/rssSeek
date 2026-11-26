@@ -1,7 +1,9 @@
 name: rss
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    # 6, 10, 14, 18 et 22 h heure de Paris, toute l'année
+    - cron: "0 5,9,13,17,21 * * *"
+    - cron: "0 4,8,12,16,20,21 * * *"
   workflow_dispatch:
 
 permissions:

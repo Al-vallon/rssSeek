@@ -22,10 +22,24 @@ https://www.cisa.gov/cybersecurity-advisories/all.xml
 # ===== Failles et CVE (filtrées sur la gravité) =====
 [vulns]
 include: critical, critique, RCE, remote code execution, exécution de code à distance, zero-day, 0-day, 0day, exploited, exploitée, CVSS 9, CVSS 10
-https://www.cert.ssi.gouv.fr/avis/feed/
 https://www.zerodayinitiative.com/rss/published/
 https://www.exploit-db.com/rss.xml
-https://www.cert.cyber.gouv.fr/alerte/
+[officiel-fr]
+https://www.cert.ssi.gouv.fr/alerte/feed/
+https://www.cert.ssi.gouv.fr/avis/feed/
+https://www.cert.ssi.gouv.fr/actualite/feed/
+https://www.cert.ssi.gouv.fr/cti/feed/
+https://www.cybermalveillance.gouv.fr/feed
+https://cert.europa.eu/publications/security-advisories-rss
+[officiel-intl]
+https://www.cisa.gov/cybersecurity-advisories/all.xml
+https://www.cisa.gov/cybersecurity-advisories/ics-advisories.xml
+https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml
+https://wid.cert-bund.de/content/public/securityAdvisory/rss
+[officiel-vulns]
+include: critical, critique, RCE, zero-day, 0-day, exploited, exploitée, ransomware
+https://www.cert.ssi.gouv.fr/avis/feed/
+https://api.msrc.microsoft.com/update-guide/rss
 
 # ===== IA et outils =====
 [ia]

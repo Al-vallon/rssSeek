@@ -1,34 +1,20 @@
-import os, json, time, feedparser, requests
 
-TOKEN = os.environ["TELEGRAM_TOKEN"]
-CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-STATE = "seen.json"
-API = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
-# --- BLOC DE TEST : à supprimer une fois que ça marche ---
-r = requests.post(API, json={"chat_id": CHAT_ID, "text": "test"})
-print("TEST:", r.status_code, r.text)
-# ----------------------------------------------------------
 
-seen = set(json.load(open(STATE))) if os.path.exists(STATE) else set()
-first_run = not seen
+import os, requests
 
-for url in open("feeds.txt").read().split():
-    feed = feedparser.parse(url)
-    for e in reversed(feed.entries):
-        uid = e.get("id") or e.get("link")
-        if uid in seen:
-            continue
-        seen.add(uid)
-        if not first_run:
-            r = requests.post(
-                API,
-                json={
-                    "chat_id": CHAT_ID,
-                    "text": f"{feed.feed.get('title', 'RSS')}\n{e.get('title')}\n{e.get('link')}",
-                },
-            )
-            print(r.status_code, e.get("link"))
-            time.sleep(1)  # évite la limite d'envoi de Telegram
+TOKEN = os.environ["TELEGRAM_TOKEN"].strip()
+CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
+BASE = f"https://api.telegram.org/bot{TOKEN}"
 
-json.dump(sorted(seen), open(STATE, "w"))
+print("Longueur CHAT_ID:", len(CHAT_ID), "| commence par:", CHAT_ID[:5])
+
+# 1. Le bot existe-t-il ?
+print("getMe:", requests.get(f"{BASE}/getMe").text)
+
+# 2. Quels chats le bot voit-il ? (aide à trouver le bon id)
+print("getUpdates:", requests.get(f"{BASE}/getUpdates").text)
+
+# 3. Envoi du message de test
+r = requests.post(f"{BASE}/sendMessage", json={"chat_id": CHAT_ID, "text": "test"})
+print("sendMessage:", r.status_code, r.text)

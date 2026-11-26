@@ -25,6 +25,7 @@ include: critical, critique, RCE, remote code execution, exécution de code à d
 https://www.cert.ssi.gouv.fr/avis/feed/
 https://www.zerodayinitiative.com/rss/published/
 https://www.exploit-db.com/rss.xml
+https://www.cert.cyber.gouv.fr/alerte/
 
 # ===== IA et outils =====
 [ia]

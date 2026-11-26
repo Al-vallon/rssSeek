@@ -1,34 +1,84 @@
-import os, json, time, feedparser, requests
+import os, sys, json, time, html
+import feedparser, requests
 
-TOKEN = os.environ["TELEGRAM_TOKEN"]
-CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-STATE = "seen.json"
+TOKEN = os.environ["TELEGRAM_TOKEN"].strip()
+CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
 API = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+STATE_FILE = "seen.json"
+UA = "rssSeek/1.0 (+github actions)"
+KEEP_PER_FEED = 500   # ids mémorisés par flux
+MAX_PER_RUN = 30      # plafond d'envois par exécution
 
-# --- BLOC DE TEST : à supprimer une fois que ça marche ---
-#r = requests.post(API, json={"chat_id": CHAT_ID, "text": "test"})
-#print("TEST:", r.status_code, r.text)
-# ----------------------------------------------------------
+def load_state():
+    try:
+        with open(STATE_FILE) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
 
-seen = set(json.load(open(STATE))) if os.path.exists(STATE) else set()
-first_run = not seen
-
-for url in open("feeds.txt").read().split():
-    feed = feedparser.parse(url)
-    for e in reversed(feed.entries):
-        uid = e.get("id") or e.get("link")
-        if uid in seen:
+def send(text):
+    for _ in range(3):
+        try:
+            r = requests.post(API, json={
+                "chat_id": CHAT_ID,
+                "text": text,
+                "parse_mode": "HTML",
+            }, timeout=15)
+        except requests.RequestException as ex:
+            print("  réseau:", ex)
+            time.sleep(3)
             continue
-        seen.add(uid)
-        if not first_run:
-            r = requests.post(
-                API,
-                json={
-                    "chat_id": CHAT_ID,
-                    "text": f"{feed.feed.get('title', 'RSS')}\n{e.get('title')}\n{e.get('link')}",
-                },
-            )
-            print(r.status_code, e.get("link"))
-            time.sleep(1)  # évite la limite d'envoi de Telegram
+        if r.status_code == 200:
+            return True
+        if r.status_code == 429:
+            wait = r.json().get("parameters", {}).get("retry_after", 5)
+            time.sleep(wait + 1)
+            continue
+        print("  Telegram:", r.status_code, r.text)
+        return False
+    return False
 
-json.dump(sorted(seen), open(STATE, "w"))
+def main():
+    state = load_state()
+    feeds = [l.strip() for l in open("feeds.txt") if l.strip() and not l.startswith("#")]
+    sent, failed = 0, False
+
+    for url in feeds:
+        feed = feedparser.parse(url, agent=UA)
+        if not feed.entries:
+            print(f"[WARN] aucun article ou flux illisible: {url}")
+            continue
+
+        title = html.escape(feed.feed.get("title", url))
+        ids = state.get(url)
+        first_time = ids is None
+        ids = ids or []
+        known = set(ids)
+
+        for e in reversed(feed.entries):  # du plus ancien au plus récent
+            uid = e.get("id") or e.get("link")
+            if not uid or uid in known:
+                continue
+            if first_time:                # nouveau flux: on mémorise sans poster
+                ids.append(uid); known.add(uid)
+                continue
+            if sent >= MAX_PER_RUN:
+                break                     # le reste sera envoyé au prochain run
+            text = f"<b>{title}</b>\n{html.escape(e.get('title', '(sans titre)'))}\n{e.get('link', '')}"
+            if send(text):
+                ids.append(uid); known.add(uid)
+                sent += 1
+                time.sleep(1)
+            else:
+                failed = True
+                break                     # on réessaiera au prochain run
+
+        state[url] = ids[-KEEP_PER_FEED:]
+        print(f"{url}: ok")
+
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, indent=1)
+    print(f"{sent} message(s) envoyé(s)")
+    sys.exit(1 if failed else 0)
+
+main()

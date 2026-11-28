@@ -66,7 +66,8 @@
   "https://korben.info/aliasvault-mots-de-passe-alias-email.html",
   "https://korben.info/faux-gta-vi-pc-github-clickfix.html",
   "https://korben.info/obsidian-skills-agents-ia.html",
-  "https://korben.info/mini-kit-diagnostic-rapide-pc-windows.html"
+  "https://korben.info/mini-kit-diagnostic-rapide-pc-windows.html",
+  "https://korben.info/usb-rea-pilote-linux-gadget-usb.html"
  ],
  "https://www.cert.ssi.gouv.fr/feed/": [
   "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1617/",
@@ -299,7 +300,19 @@
   "https://dev.to/woodori1234max/i-built-150-browser-private-mental-wellness-focus-tools-in-vanilla-js-zero-backend-12-languages-m47",
   "https://dev.to/maydaychen/can-one-zero-dom-skeleton-power-both-a-tower-defense-and-a-mario-style-action-platformer-14c0",
   "https://dev.to/kozhevniko/171-million-ssh-service-matches-do-not-measure-pam-build-exposure-167d",
-  "https://dev.to/masaya_oka/try-ucautomail-from-testpypi-with-iris-and-excel-3bg3"
+  "https://dev.to/masaya_oka/try-ucautomail-from-testpypi-with-iris-and-excel-3bg3",
+  "https://dev.to/ruiheng903ux/two-silent-python-memory-leaks-that-pass-code-review-and-how-to-catch-them-in-pytest-with-4a0n",
+  "https://dev.to/robert-adrian-knippelberg/do-we-really-need-expensive-gpus-to-run-generative-ai-locally-jan",
+  "https://dev.to/pixpassport/pdf-forms-in-2026-why-fillable-pdfs-still-frustrate-everyone-4ffm",
+  "https://dev.to/nandv2607/building-roots-bringing-indias-36-cultural-regions-to-life-with-cloudinary-generative-ai--4jco",
+  "https://dev.to/rockyyy/a-port-scanner-in-bash-and-what-it-teaches-you-about-recon-4f3d",
+  "https://dev.to/leojulieta/crea-y-usa-bots-de-ia-para-apuestas-sin-que-te-bloqueen-9jp",
+  "https://dev.to/aqibnawab/dead-air-during-tool-calls-what-a-voice-agent-should-say-while-it-waits-5hki",
+  "https://dev.to/clara_sutton/tiny-house-cad-envelopes-in-typescript-dot-8-6-road-limits-irc-appendix-q-loft-headroom-and-3pj5",
+  "https://dev.to/leojulieta/build-ai-betting-bots-from-world-cup-hype-to-live-odds-319a",
+  "https://dev.to/michaelwilsonn/after-the-resume-template-ships-version-floors-font-fallbacks-and-previews-in-quarto-and-zola-1p3f",
+  "https://dev.to/gideonsterling9643/where-to-store-ai-generated-images-and-thumbnails-with-signed-urls-and-lifecycle-cleanup-4oe1",
+  "https://dev.to/leojulieta/crie-seu-bot-de-apostas-pos-copa-com-python-e-llms-dd3"
  ],
  "https://hnrss.org/frontpage?points=150": [
   "https://news.ycombinator.com/item?id=50589784",
@@ -344,7 +357,13 @@
   "https://news.ycombinator.com/item?id=50670855",
   "https://news.ycombinator.com/item?id=50672565",
   "https://news.ycombinator.com/item?id=50673688",
-  "https://news.ycombinator.com/item?id=50674218"
+  "https://news.ycombinator.com/item?id=50674218",
+  "https://news.ycombinator.com/item?id=50632052",
+  "https://news.ycombinator.com/item?id=50672521",
+  "https://news.ycombinator.com/item?id=50674452",
+  "https://news.ycombinator.com/item?id=50676390",
+  "https://news.ycombinator.com/item?id=50676672",
+  "https://news.ycombinator.com/item?id=50676723"
  ],
  "https://www.zataz.com/feed/": [
   "https://www.zataz.com/?p=48708",
@@ -381,7 +400,15 @@
   "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/",
   "https://www.bleepingcomputer.com/news/microsoft/new-out-of-band-oob-emergency-hotpatch-fixes-windows-server-2025-crashes/",
   "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
-  "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/"
+  "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+  "https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wsus-server-role-in-windows-server-2028/",
+  "https://www.bleepingcomputer.com/news/security/malwarebytes-antivirus-get-50-percent-off-during-black-friday-2026/",
+  "https://www.bleepingcomputer.com/news/security/your-firewall-isnt-enough-the-hidden-risk-of-unmanaged-vms/",
+  "https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/",
+  "https://www.bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution/",
+  "https://www.bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info/",
+  "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/",
+  "https://www.bleepingcomputer.com/news/security/q-dir-and-desktopok-windows-utilities-compromised-to-push-python-rat/"
  ],
  "https://feeds.feedburner.com/TheHackersNews": [
   "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
@@ -435,7 +462,10 @@
   "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
   "https://thehackernews.com/2026/11/most-wanted-phishing-kits-and.html",
   "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
-  "https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html"
+  "https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html",
+  "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+  "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+  "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html"
  ],
  "https://krebsonsecurity.com/feed/": [
   "https://krebsonsecurity.com/?p=74474",
